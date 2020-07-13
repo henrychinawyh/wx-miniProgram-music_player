@@ -23,7 +23,9 @@ import "./index.scss";
   })
 )
 class Index extends Component {
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    console.log(1231);
+  }
 
   componentDidShow() {}
 

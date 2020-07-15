@@ -1,0 +1,70 @@
+.player {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  // overflow: hidden;
+  .player-poster {
+    padding: 6px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ebebeb;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    background: lightblue;
+    margin-left: 50px;
+    margin-top: -40px;
+    animation: rotateAnimation 20s linear infinite;
+    .poster {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .player-opt {
+    flex: 1;
+    align-self: center;
+    justify-content: flex-end;
+    display: flex;
+    padding-right: 50px;
+    .icon-tem {
+      display: block;
+      font-size: 30px;
+      color: #000000;
+      margin-left: 40px;
+    }
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -webkit-transform: rotate(0);
+  }
+  20% {
+    transform: rotate(72deg);
+    -webkit-transform: rotate(72deg);
+    -webkit-transform: rotate(72deg);
+  }
+  40% {
+    transform: rotate(144deg);
+    -webkit-transform: rotate(144deg);
+    -webkit-transform: rotate(144deg);
+  }
+  60% {
+    transform: rotate(216deg);
+    -webkit-transform: rotate(216deg);
+    -webkit-transform: rotate(216deg);
+  }
+  80% {
+    transform: rotate(288deg);
+    -webkit-transform: rotate(288deg);
+    -webkit-transform: rotate(288deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}

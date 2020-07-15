@@ -1,30 +1,41 @@
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
+import React, { Component } from "react";
+import { Provider } from "react-redux";
 
-import configStore from './store'
+import configStore from "./store";
+import 'taro-ui/dist/style/index.scss'
+import "./app.scss";
 
-import './app.scss'
-
-const store = configStore()
+const store = configStore();
 
 class App extends Component {
-  componentDidMount () {}
+  config = {
+    pages: [
+      "pages/index/index",
+      "pages/albumDetail/index",
+      "pages/artistList/index",
+    ],
+    window: {
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#fff",
+      navigationBarTitleText: "TaroMusic",
+      navigationBarTextStyle: "black",
+      enablePullDownRefresh: true,
+    },
+  };
 
-  componentDidShow () {}
+  componentDidMount() {}
 
-  componentDidHide () {}
+  componentDidShow() {}
 
-  componentDidCatchError () {}
+  componentDidHide() {}
+
+  componentDidCatchError() {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
-    return (
-      <Provider store={store}>
-        {this.props.children}
-      </Provider>
-    )
+  render() {
+    return <Provider store={store}>{this.props.children}</Provider>;
   }
 }
 
-export default App
+export default App;

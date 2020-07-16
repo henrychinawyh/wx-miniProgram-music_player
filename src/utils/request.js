@@ -30,7 +30,7 @@ function checkSuccess(data, resolve) {
   }
 
   if (typeof data.code === "number" && data.code === 200) {
-    return resolve(data);
+    return resolve(data.result || data.playlist);
   }
 
   const error = new Error(data.message || "服务端返回异常");

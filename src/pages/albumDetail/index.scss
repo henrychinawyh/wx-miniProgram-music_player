@@ -1,0 +1,91 @@
+.album-detail {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  .album-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    .album-cover {
+      height: 600px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      .cover-image {
+        width: 100%;
+      }
+    }
+
+    .cover-content {
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .cover-content-title {
+        display: flex;
+        flex-direction: column;
+        .cover-content-title-name {
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .cover-content-description {
+          display: -webkit-box;
+          // .textOverflowMulti(2);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+
+          /*! autoprefixer: off */
+          -webkit-box-orient: vertical;
+          color: #666666;
+          /*! autoprefixer: on */
+        }
+      }
+
+      .cover-content-footer {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .albumList {
+    display: flex;
+    flex-direction: column;
+    .song-item {
+      height: 100px;
+      display: flex;
+
+      &:hover {
+        background: #eaeaea;
+      }
+
+      .song-front {
+        .song-index {
+          font-size: 30px;
+          width: 100px;
+          height: 100px;
+          line-height: 100px;
+          text-align: center;
+          color: #999999;
+        }
+      }
+
+      .song {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .song-name {
+          display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          margin-bottom: 6px;
+        }
+      }
+    }
+  }
+}

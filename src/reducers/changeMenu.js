@@ -4,8 +4,8 @@ const INITIAL_STATE = {
   menuId: 0,
 };
 
-export default function changeMenuId(state = INITIAL_STATE, action) {
-  const { menuId, type } = action;
+export default function changeMenuId(state = INITIAL_STATE, actions) {
+  const { menuId, type } = actions;
 
   switch (type) {
     case CHANGE_MENU:

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 
 import configStore from "./store";
-import 'taro-ui/dist/style/index.scss'
 import "./app.scss";
 
 const store = configStore();
@@ -17,7 +16,7 @@ class App extends Component {
     window: {
       backgroundTextStyle: "light",
       navigationBarBackgroundColor: "#fff",
-      navigationBarTitleText: "TaroMusic",
+      navigationBarTitleText: "米拉音乐",
       navigationBarTextStyle: "black",
       enablePullDownRefresh: true,
     },

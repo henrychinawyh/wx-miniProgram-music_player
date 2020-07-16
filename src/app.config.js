@@ -1,9 +1,13 @@
 export default {
-  pages: ["pages/index/index"],
+  pages: [
+    "pages/index/index",
+    "pages/albumDetail/index",
+    "pages/artistList/index",
+  ],
   window: {
     backgroundTextStyle: "light",
     navigationBarBackgroundColor: "#fff",
-    navigationBarTitleText: "WeChat",
+    navigationBarTitleText: "米拉音乐",
     navigationBarTextStyle: "black",
   },
 };

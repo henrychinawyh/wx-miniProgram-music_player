@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { View, Image, Text, Picker } from "@tarojs/components";
-
+import React from "react";
+import { View, Image, Text } from "@tarojs/components";
+// import { AtIcon } from "taro-ui";
 import "./index.scss";
 
 const Player = (props) => {
@@ -21,7 +21,7 @@ const Player = (props) => {
       </View>
 
       {/* 右边操作按钮 */}
-      {/* <View className="player-opt">
+      <View className="player-opt">
         <Text className={"icon-tem iconfont iconbofang"}>1</Text>
         <Text className={"icon-tem iconfont iconxiayishou"}>2</Text>
         <Text
@@ -30,7 +30,7 @@ const Player = (props) => {
         >
           3
         </Text>
-      </View> */}
+      </View>
     </View>
   );
 };

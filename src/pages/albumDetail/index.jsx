@@ -26,7 +26,7 @@ import "./index.scss";
     },
   })
 )
-class albumDetail extends Component {
+class AlbumDetail extends Component {
   state = {
     albumId: undefined,
     coverImgUrl: "", // 封面图
@@ -151,4 +151,4 @@ class albumDetail extends Component {
   }
 }
 
-export default albumDetail;
+export default AlbumDetail;

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Taro from "@tarojs/taro";
+import { Button } from "taro-ui";
 import { View, Image } from "@tarojs/components";
 import { getRecommendList } from "../../services/index";
 import { connect } from "react-redux";

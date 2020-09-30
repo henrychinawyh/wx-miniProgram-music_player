@@ -50,17 +50,18 @@
     "taro-ui": "^3.0.0-alpha"
   },
   "devDependencies": {
-    "@types/webpack-env": "^1.13.6",
-    "@types/react": "^16.0.0",
-    "@tarojs/mini-runner": "3.0.2",
     "@babel/core": "^7.8.0",
+    "@tarojs/mini-runner": "3.0.2",
     "@tarojs/webpack-runner": "3.0.2",
+    "@types/react": "^16.0.0",
+    "@types/webpack-env": "^1.13.6",
     "babel-preset-taro": "3.0.2",
-    "eslint-config-taro": "3.0.2",
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.8.2",
+    "eslint-config-taro": "3.0.2",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^1.6.1",
-    "stylelint": "9.3.0"
+    "stylelint": "9.3.0",
+    "taro-iconfont-cli": "^3.0.0"
   }
 }

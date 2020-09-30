@@ -3,6 +3,9 @@ import { ALBUM_DETAIL, CURRENT_ALBUM_ID } from "../actions/albumDetail";
 const INITIAL_STATE = {
   album: {},
   albumId: undefined,
+  songsList: [],
+  currentPlaySongId: undefined,
+  currentPlaySongInfo: {},
 };
 
 export default function changeAlbumDetail(state = INITIAL_STATE, actions) {

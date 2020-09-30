@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Taro from "@tarojs/taro";
-import { Button } from "taro-ui";
-import { View, Image } from "@tarojs/components";
+import { View } from "@tarojs/components";
+import ListItem from "../listItem";
 import { getRecommendList } from "../../services/index";
 import { connect } from "react-redux";
 import { changeSong } from "../../actions/newSong";
@@ -30,53 +30,7 @@ const newSong = ({ changeNewSong, changeSong = () => {} }) => {
 
   return (
     <View className="newSong">
-      <View className="recommend">
-        <View className="recommend-image">
-          <Image
-            className="recommend-image-first"
-            mode="scaleToFill"
-            src={songs[0] && songs[0].picUrl}
-          />
-        </View>
-        <View className="recommend-content">
-          <View className="recommend-name">{songs[0] && songs[0].name}</View>
-          <View className="recommend-copywriter">
-            {songs[0] && songs[0].copywriter}
-          </View>
-
-          <View className="recommend-playCount">
-            {songs[0] && songs[0].playCount}
-          </View>
-        </View>
-      </View>
-
-      <View className="at-row at-row--wrap other-recommend">
-        {songs.map((item, index) => {
-          if (!index) {
-            return null;
-          } else {
-            return (
-              <View
-                key={item.id}
-                className="at-col at-col-12 song-item"
-                onClick={() => navigateToDetail(item.id, item.name)}
-              >
-                <View className="song-image">
-                  <Image
-                    className="song-image-recommend"
-                    mode="scaleToFill"
-                    src={item && item.picUrl}
-                  />
-                </View>
-                <View className="song-content">
-                  <View className="song-title">{item.name}</View>
-                  <View className="song-playCount">{item.playCount}</View>
-                </View>
-              </View>
-            );
-          }
-        })}
-      </View>
+      <ListItem albums={songs} navigateToDetail={navigateToDetail} />
 
       <View className="footer">———— 已经滑动到最底部了 —————</View>
     </View>

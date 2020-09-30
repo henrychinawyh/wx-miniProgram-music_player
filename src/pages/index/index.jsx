@@ -14,7 +14,6 @@ import NewSong from "../../components/newSong";
 import LastestSong from "../../components/lastestSong";
 import NewAlbum from "../../components/newAlbum";
 import SearchMore from "../../components/searchMore";
-import Player from "../../components/player";
 import { changeSong } from "../../actions/newSong";
 import { getRecommendList } from "../../services/index";
 import "./index.scss";
@@ -118,10 +117,6 @@ class Index extends Component {
           {menuId === 2 && <NewAlbum />}
           {menuId === 3 && <SearchMore />}
         </ScrollView>
-        {/* 底部播放器 */}
-        <View className="player">
-          <Player />
-        </View>
       </View>
     );
   }

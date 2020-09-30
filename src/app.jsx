@@ -12,6 +12,7 @@ class App extends Component {
       "pages/index/index",
       "pages/albumDetail/index",
       "pages/artistList/index",
+      "pages/player/index",
     ],
     window: {
       backgroundTextStyle: "light",

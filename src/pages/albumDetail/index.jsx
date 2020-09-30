@@ -5,13 +5,17 @@
  */
 
 import React, { Component } from "react";
-import { View, Image, ScrollView } from "@tarojs/components";
+import { View, Image, Text } from "@tarojs/components";
 import Taro, { getCurrentInstance } from "@tarojs/taro";
-import "./index.scss";
+
+import { AtButton } from "taro-ui";
+import IconFont from "../../components/iconfont";
 import { connect } from "react-redux";
-import { setCurrentAlbumId, getAlbumDetail } from "../../actions/albumDetail";
+import DetailList from "../../components/detailList";
+import { PlayCount } from "../../components/miniComponents";
+import { setCurrentAlbumId } from "../../actions/albumDetail";
+
 import { getAlbumList } from "../../services/index";
-import { getDateTimeString, dataFormat } from "../../utils/utils";
 
 import "./index.scss";
 
@@ -29,7 +33,7 @@ import "./index.scss";
 class AlbumDetail extends Component {
   state = {
     albumId: undefined,
-    coverImgUrl: "", // 封面图
+    backgroundCoverUrl: "", // 封面图
     createTime: null, // 创建时间
     creator: {}, // 创建者
     name: "",
@@ -37,6 +41,7 @@ class AlbumDetail extends Component {
     description: "",
     tags: [],
     tracks: [], // 音乐列表
+    album: {},
   };
 
   componentWillMount() {
@@ -46,7 +51,7 @@ class AlbumDetail extends Component {
 
     let newTitle = "";
     if (String(albumName).length > 7) {
-      newTitle = albumName.replace(albumName.substr(7), "...");
+      newTitle = (albumName || "").replace(albumName.substr(7), "...");
     }
 
     Taro.setNavigationBarTitle({
@@ -74,8 +79,14 @@ class AlbumDetail extends Component {
       tracks,
     } = res;
 
+    const album = {
+      picUrl: coverImgUrl,
+      playCount,
+    };
+
     this.setState({
       coverImgUrl,
+
       createTime,
       creator,
       name,
@@ -83,6 +94,7 @@ class AlbumDetail extends Component {
       description,
       tags,
       tracks,
+      album,
     });
   }
 
@@ -100,52 +112,52 @@ class AlbumDetail extends Component {
       description,
       tags,
       tracks,
+      album,
     } = this.state || {};
-
-    // 对数据做预处理
-    // let creatorName = dataFormat(creator.nickname);
-
-    // let newTagStr = "";
-    // if (Array.isArray(tags)) {
-    //   let newTag = tags;
-    //   if (tags.length > 2) {
-    //     newTag = newTag.slice(0, 1);
-    //     newTagStr = `${tags[0]}、${tags[1]}...`;
-    //   } else {
-    //     newTagStr = tags.join("、");
-    //   }
-    // }
 
     return (
       <View className="album-detail">
         <View className="album-content">
           <View className="album-cover">
             <Image className="cover-image" src={coverImgUrl} mode="widthFix" />
-          </View>
-          <View className="cover-content">
-            <View className="cover-content-title">
-              <View className="cover-content-title-name">{name}</View>
-              <View className="cover-content-description">{description}</View>
+            <View className="cover-mask"></View>
+            <View className="album-info">
+              <View className="at-row">
+                <View className="at-col at-col-4">
+                  <PlayCount item={album} mode="widthFix" />
+                </View>
+                <View className="at-col at-col-7 at-col__offset-1 cover-content">
+                  <Text className="cover-title-name">{name}</Text>
+                  <View className="content">
+                    <Text className="cover-content-description">
+                      {description.length > 30
+                        ? `${description.substring(0, 30)}...`
+                        : description}
+                    </Text>
+                    {description.length > 30 ? (
+                      <Text className="cover-content-more">更多</Text>
+                    ) : null}
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View className="ablum-operator">
+              <AtButton type="primary" size="small">
+                <View className="album-icon">
+                  <IconFont name="bofang_huaban" size={32} color="#eaeaea" />
+                  <Text className="btn-icon icon1">播放全部</Text>
+                </View>
+              </AtButton>
+              <AtButton size="small">
+                <View className="album-icon">
+                  <IconFont name="fenxiang3" size={32} color="#eaeaea" />
+                  <Text className="btn-icon icon2">分享专辑</Text>
+                </View>
+              </AtButton>
             </View>
           </View>
         </View>
-        <View className="albumList">
-          {tracks.map((item, index) => {
-            const { al, ar } = item || {};
-            return (
-              <View key={item.id} className="song-item">
-                <View className="song-front">
-                  <View className="song-index">{index + 1}</View>
-                </View>
-
-                <View className="song">
-                  <View className="song-name">{item.name}</View>
-                  <View className="song-author-name">{ar[0].name}</View>
-                </View>
-              </View>
-            );
-          })}
-        </View>
+        <DetailList songs={tracks} />
       </View>
     );
   }

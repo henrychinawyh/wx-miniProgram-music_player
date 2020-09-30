@@ -2,72 +2,11 @@
   display: flex;
   flex-direction: column;
   padding: 0 20px;
-  .recommend {
-    display: flex;
-    height: 240px;
-    margin-top: 20px;
-    margin-bottom: 6px;
-    .recommend-image {
-      .recommend-image-first {
-        width: 240px;
-        height: 100%;
-      }
-    }
-
-    .recommend-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      padding-left: 20px;
-      font-size: 28px;
-      color: #333333;
-      .recommend-name {
-        width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .recommend-copywriter {
-        font-size: 24px;
-      }
-      .recommend-playCount {
-        font-size: 20px;
-      }
-    }
-  }
-
-  .other-recommend {
-    display: flex;
-    flex-direction: column;
-  }
-  .song-item {
-    display: flex;
-    height: 200px;
-    margin-bottom: 6px;
-    .song-image {
-      .song-image-recommend {
-        width: 200px;
-        height: 100%;
-      }
-    }
-    .song-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding-left: 20px;
-      font-size: 24px;
-      .song-playCount {
-        font-size: 20px;
-      }
-    }
-  }
 
   .footer {
     text-align: center;
     padding: 40px;
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 24px;
     color: #cfcfcf;
   }
